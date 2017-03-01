@@ -1,0 +1,48 @@
+<td id= "<%- id %>" > <div class="assigneeD" contenteditable="false"> <%- assignedBy %> </div>
+<button type="button" title="Edit Assignee" class="btn btn-default btn-sm assignee"><span class="glyphicon glyphicon-pencil"></span></button>
+<button type="button" title="Save Assignee" class="btn btn-default btn-sm saveAssignee"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+<button type="button" title="Undo"class="btn btn-default btn-sm undoAssignee"><span class="glyphicon glyphicon-floppy-remove"></span></button></td> 
+<td> <div class="textD" contenteditable="false"> <%- taskDescription %> </div>
+<button type="button" title="Edit Text" class="btn btn-default btn-sm text"><span class="glyphicon glyphicon-pencil"></span></button>
+<button type="button" title="Save Assignee" class="btn btn-default btn-sm saveText"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+<button type="button" title="Undo"class="btn btn-default btn-sm undoText"><span class="glyphicon glyphicon-floppy-remove"></td>
+<td> <%- dateCreated %> </td>
+<td> <%- dateModified %> </td> 
+<td>
+	<div class="form-group">
+		<select class="form-control todoStatus">
+				<% if(notStartedChecker()) { %>
+					<option value="Not Started" selected> Not Started </option>
+				<% } else { %>
+					<option value="Not Started" > Not Started </option>
+				<% } %>
+				<% if(inProgressChecker()) { %>
+					<option value="In Progress" selected> In Progress </option>
+				<% } else { %>
+					<option value="In Progress"> In Progress </option>
+				<% } %>
+				<% if(completeChecker()) { %>
+					<option value="Complete" selected> Complete </option>
+				<% } else { %>
+					<option value="Complete"> Complete </option>
+				<% } %>
+		</select>
+	</div>
+</td>
+<td>
+<% if(notStartedChecker()) { %>
+	<span style="font-size:30px;color: #B22222;display:block; padding-left:20px;" class="notStarted glyphicon glyphicon-remove"></span>
+<% } else { %>
+	<span style="font-size:30px;color: #B22222;display:none; padding-left:20px;" class="notStarted glyphicon glyphicon-remove"></span>
+<% } %>
+<% if(completeChecker()) { %>
+	<span style="font-size:30px;color: #f4511e;display:block; padding-left:20px;" class="complete glyphicon glyphicon-ok"></span>
+<% } else { %>
+	<span style="font-size:30px;color: #f4511e;display:none; padding-left:20px;" class="complete glyphicon glyphicon-ok"></span>
+<% } %>
+<% if(inProgressChecker()) { %>
+	<span style="font-size:30px;color: #286090;display:block; padding-left:20px;" class="inProgress glyphicon glyphicon-time"></span>
+<% } else { %>
+	<span style="font-size:30px;color: #286090;display:none; padding-left:20px;" class="inProgress glyphicon glyphicon-time"></span>
+<% } %>
+</td>
